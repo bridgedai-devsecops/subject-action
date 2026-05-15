@@ -1,0 +1,32 @@
+name: 'BridgedAI Subject'
+description: 'Resolve immutable artifact identity (OCI image, file, npm tarball, or binary).'
+branding:
+  icon: 'package'
+  color: 'green'
+inputs:
+  subject:
+    description: 'Subject reference (image ref, path, etc.).'
+    required: true
+  subject-type:
+    description: 'oci | file | npm | binary'
+    required: true
+  mode:
+    description: 'production (default) or mock (tests only).'
+    required: false
+    default: 'production'
+  allow-insecure-fallback:
+    description: 'Allows mock-only synthetic OCI digests when mode=mock. Never enables fake digests in production.'
+    required: false
+    default: 'false'
+outputs:
+  subject-name:
+    description: 'Human-readable subject name.'
+  subject-digest:
+    description: 'Canonical digest (sha256:…).'
+  subject-uri:
+    description: 'Canonical URI/reference string.'
+  subject-type:
+    description: 'Echoed subject type.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
