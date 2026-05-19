@@ -1,5 +1,6 @@
 name: 'BridgedAI Subject'
 description: 'Resolve immutable artifact identity (OCI image, file, npm tarball, or binary).'
+author: 'BridgedAI'
 branding:
   icon: 'package'
   color: 'green'
